@@ -30,7 +30,7 @@ CASE
 	WHEN Gender = 'M' THEN 'Male'
 	ELSE 'Not Available'
 END AS Gender_full_text
-FROM Sales.Employees
+FROM Sales.Employees;
 
 -- Retrieve customer details with abbreviated country codes 
 
@@ -40,7 +40,7 @@ Case
         WHEN Country = 'USA'     THEN 'US'
         ELSE 'n/a'
 END AS Country_Code
-FROM Sales.Customers
+FROM Sales.Customers;
 
 -- Quick from Syntax
 
@@ -50,7 +50,7 @@ Case Country
     WHEN 'USA' THEN 'US'
     ELSE 'n/a'
 END AS Country_Code
-FROM Sales.Customers
+FROM Sales.Customers;
 
 -- Use Case : Handling NULL
 
@@ -61,7 +61,7 @@ AVG(CASE
 		WHEN Score IS NULL THEN 0
 		ELSE Score
 	END) OVER () AS AvgScores
-FROM Sales.Customers
+FROM Sales.Customers;
 
 -- Use Case : Conditional Aggregation
 
