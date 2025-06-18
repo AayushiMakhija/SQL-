@@ -18,7 +18,7 @@ customer's score. */
 SELECT CustomerID , FirstName ,LastName , Score,
 	FirstName +' '+ COALESCE(LastName , ' ') AS FullName,
 	COALESCE(Score ,0) +10 AS Bonus_Scores
-FROM Sales.Customers
+FROM Sales.Customers;
 
 -- Handle NULL - Sorting Data
 
