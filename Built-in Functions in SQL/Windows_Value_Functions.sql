@@ -30,4 +30,4 @@ SELECT OrderID, OrderDate, Sales,ProductID,
 	FIRST_VALUE(Sales) OVER (ORDER BY ProductID ,Sales) AS Lowest_Sales,
 	LAST_VALUE(Sales) OVER (PARTITION BY ProductID ORDER BY Sales ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING) AS Highest_Sales,
 	Sales - FIRST_VALUE(Sales) OVER (PARTITION BY ProductID ORDER BY Sales) AS SalesDifference
-FROM Sales.Orders
+FROM Sales.Orders;
