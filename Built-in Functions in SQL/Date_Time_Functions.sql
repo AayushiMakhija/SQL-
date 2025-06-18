@@ -7,7 +7,7 @@
 SELECT OrderID, CreationTime, 
 	'2025-08-20' AS HardCoded,
 	GETDATE() AS Today
-FROM Sales.Orders
+FROM Sales.Orders;
 
 -- Manipulation of date and time can be done by following functions:
 
@@ -21,7 +21,7 @@ SELECT OrderID, CreationTime,
 	  DAY(CreationTime) AS DAY,
 	  MONTH(CreationTime) AS MONTH,
 	  YEAR(CreationTime) AS YEAR
-FROM Sales.Orders
+FROM Sales.Orders;
 
 -- 2. DATEPART()
 
@@ -36,7 +36,7 @@ SELECT OrderID, CreationTime,
 	  DATEPART(second , CreationTime) AS SECOND_dp,
 	  DATEPART(quarter , CreationTime) AS QUARTER_dp,
 	  DATEPART(week , CreationTime) AS WEEK_dp
-FROM Sales.Orders
+FROM Sales.Orders;
 
 -- 3. DATENAME()
 
@@ -45,7 +45,7 @@ FROM Sales.Orders
 SELECT OrderID, CreationTime,
 	  DATENAME(month, CreationTime) AS MONTH_dn,
 	  DATENAME(weekday, CreationTime) AS WEEKDAY_dn
-FROM Sales.Orders
+FROM Sales.Orders;
 
 -- 4. DATETRUNC()
 
@@ -53,7 +53,7 @@ FROM Sales.Orders
 
 SELECT OrderID, CreationTime,
 	  DATETRUNC(minute, CreationTime) AS DandT_MIN
-FROM Sales.Orders
+FROM Sales.Orders;
 
 -- 5. EOMONTH()
 
@@ -61,21 +61,21 @@ FROM Sales.Orders
 
 SELECT OrderID, CreationTime,
 	  EOMONTH(CreationTime) AS EOMONTH_CT
-FROM Sales.Orders
+FROM Sales.Orders;
 
 -- Task
 
 -- How many orders were placed each year
 
-SELECT DATEPART(year, OrderDate) AS Years, COUNT(*) AS orders_per_year FROM Sales.Orders GROUP BY DATEPART(year, OrderDate)
+SELECT DATEPART(year, OrderDate) AS Years, COUNT(*) AS orders_per_year FROM Sales.Orders GROUP BY DATEPART(year, OrderDate);
 
 -- How many orders were placed each month
 
-SELECT DATENAME(month, OrderDate) AS Months, COUNT(*) AS orders_per_year FROM Sales.Orders GROUP BY DATENAME(month, OrderDate)
+SELECT DATENAME(month, OrderDate) AS Months, COUNT(*) AS orders_per_year FROM Sales.Orders GROUP BY DATENAME(month, OrderDate);
 
 -- Show all orders that were placed during the month of February
 
-SELECT * FROM Sales.Orders WHERE MONTH(OrderDate) = 2
+SELECT * FROM Sales.Orders WHERE MONTH(OrderDate) = 2;
 
 -- Format and Casting
 
@@ -92,7 +92,7 @@ SELECT OrderID, CreationTime,
 	FORMAT(CreationTime,'MM') AS MM,
 	FORMAT(CreationTime,'MMM') AS MMM,
 	FORMAT(CreationTime,'MMMM') AS MMMM
-FROM Sales.Orders
+FROM Sales.Orders;
 
 -- Task
 
@@ -101,7 +101,7 @@ FROM Sales.Orders
 SELECT OrderID, CreationTime, 
 	'Day ' + FORMAT(CreationTime, 'ddd MMM') 
 	+ ' Q' + DATENAME(quarter, CreationTime) + FORMAT(CreationTime, ' yyyy hh:mm:ss tt') AS Custom_date
-FROM Sales.Orders
+FROM Sales.Orders;
 
 -- How many orders were placed each year, formatted by month and year (e.g., "Jan 25")?
 
