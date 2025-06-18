@@ -42,7 +42,7 @@ SELECT * FROM (
 -- Assign Unique IDs to the Rows of the 'Order Archive'
 
 SELECT OrderID, OrderDate, ROW_NUMBER() OVER (ORDER BY OrderID , OrderDate) AS UniqueID
-    FROM Sales.OrdersArchive
+    FROM Sales.OrdersArchive;
 
 -- ROW_NUMBER Use Case : Identify Duplicates
 
@@ -93,7 +93,7 @@ FROM (
 SELECT
         *,
         NTILE(2) OVER ( ORDER BY OrderID) AS Buckets
-    FROM Sales.Orders
+    FROM Sales.Orders;
 
 -- Percentage Based Ranking Functions
 
